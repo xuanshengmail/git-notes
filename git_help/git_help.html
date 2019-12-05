@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>cmd</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<!-- <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--侧栏目录生成代码-->
+<script>
+    //标题序号计数器
+    var hCount = [0, 0, 0, 0, 0, 0];
+    //设置计数器
+    function setHCount(number) {
+        //当前计数器加一
+        hCount[number - 1]++;
+        for (var i = number, length = hCount.length; i < length; i++) {
+            //子目录计数器全部置零
+            hCount[i] = 0;
+        }
+    }
+    //重命名目录名称
+    function setHTagValue(item, number) {
+        //获取标题名
+        var text = $(item).get(0).innerHTML;
+        //初始化空字符串
+        var before = "";
+        //生成序号
+        for (var i = 0, length = hCount.length; i < number; i++) {
+            if (i < number - 1)
+                before += hCount[i] + ".";
+            else
+                before += hCount[i] + " ";
+        }
+        //在标题前面加上序号
+        $(item).get(0).innerHTML = before + text;
+    }
+    function renameHTag(item) {
+        var tag = $(item).get(0).localName;
+        if (tag === "h1") {
+            setHCount(1);
+           //console\.log("捕获到标签:%s", tag);
+            setHTagValue(item, 1);
+        }
+        if (tag === "h2") {
+            setHCount(2);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 2);
+        }
+        if (tag === "h3") {
+            setHCount(3);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 3);
+        }
+        if (tag === "h4") {
+            setHCount(4);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 4);
+        }
+        if (tag === "h5") {
+            setHCount(5);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 5);
+        }
+        if (tag === "h6") {
+            setHCount(6);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 6)
+        }
+    }
+    $(document).ready(function () {
+        $("h1,h2,h3,h4,h5,h6").each(function (i, item) {
+            //给<H>类标签编号
+            renameHTag(item);
+            //获取标签的名字,h1,还是h2
+            var tag = $(item).get(0).localName;
+            //为该标签设置id属性
+            $(item).attr("id", "wow" + i);
+            //添加一个页内超链接,并设置class选择器
+            //      $("#category").append('<a class="new'+tag+'" href="#wow'+i+'">'+$(this).text()+'</a></br>');
+            $("#category").append('<a class="new' + tag + '" href="#wow' + i + '">' + $(item).text() + '</a></br>');
+            //为每一个标题超链接的class属性设置左边距
+            $(".newh1").css("margin-left", 0);
+            $(".newh2").css("margin-left", 20);
+            $(".newh3").css("margin-left", 40);
+            $(".newh4").css("margin-left", 60);
+            $(".newh5").css("margin-left", 80);
+            $(".newh6").css("margin-left", 100);
+        });
+        //设置class选择器为.book-body的html内容
+        $(".book-body").html($(".book-body").nextAll())
+    });
+</script>
+<style type="text/css">
+     @media (max-width: 1600px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+    @media (max-width: 1400px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+    @media (max-width: 1200px) {
+        .book-body {
+            /* padding-left: 300px; */
+            padding-left: 0px;
+        }
+    }
+    @media (max-width: 700px) {
+        .book-body {
+            padding-left: 0px;
+        }
+    }
+    @media (min-width: 600px) {
+        #category {
+            /* 绝对定位 */
+            position: fixed;
+            /* left: 20px; */
+            /* 目录显示的位置 */
+            right: 0px;
+            top: 0;
+            /* 目录栏的高度,这里设置为60%主要是为了不挡住返回顶部和折叠按钮 */
+            height: 79%;
+            /* 开启垂直滚动条 */
+            overflow-y: scroll;
+            /* 开启水平滚动条 */
+            overflow-x: scroll;
+        }
+    }
+    @media (-webkit-max-device-pixel-ratio: 1) {
+        ::-webkit-scrollbar-track-piece {
+            background-color: #FFF
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #c2c2c2;
+            background-clip: padding-box;
+            min-height: 28px
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #A0A0A0
+        }
+    }
+</style>
+<script>
+    // id="category" οnclick="showOrCloseCategory()"
+    function showOrCloseCategory() {
+        var id = document.getElementById("category");
+        var book_body=document.getElementById("book_body");
+        //如果展开了
+        if (id.style.display == 'block') {
+            //console.log("开始展开");
+            id.style.display='none';
+            id.style.width="0%";
+            book_body.style.width="100%";
+            book_body.style.paddingleft=0;
+        }
+        //如果被折叠了
+        else if (id.style.display =='none') {
+            //console.log("开始折叠");
+            id.style.display = 'block';
+            book_body.style.width="90%";
+            id.style.width="20%"
+        }
+    }
+</script>
+<!--返回顶部-->
+<a href="javascript:scroll(0,0)" style="position:fixed;float:right;right:40px;top:80%">返回顶部</a>
+<button onclick="showOrCloseCategory()" style="position:fixed;float:right;right:40px;top:85%">折叠/展开</button>
+<!--文章主体部分-->
+<div class="book-body" id="book_body" style="width:90%;display:block"> </div>
+<!--目录栏，设置占用宽度为20%可以根据实际情况设置-->
+<div  class="book-summary" id="category" style="width:20%;display:block" ></div>
+
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+</head>
+<body>
+<hr />
+<h1>概述</h1>
+<hr />
+<h2>年度状态分析</h2>
+<pre><code>https://octoverse.github.com/
+</code></pre>
+
+<h2>证书license</h2>
+<p><img src="https://raw.githubusercontent.com/xuanshengmail/pictures/master/picgo/git-license-protocol.png" alt="（加载失败）git证书说明" /></p>
+<h2>配置ssh</h2>
+<pre><code>1. ssh-keygen -t rsa -C &quot;your email&quot;
+2. cd ~/.ssh
+3. copy the (public key) content of file id_rsa.pub
+4. sign in your github
+5. new a ssh key
+6. paste the content
+</code></pre>
+
+<h2>配置github图床</h2>
+<pre><code>1. 新建一个空仓库
+2. 账户设置中develop settings中为picgo申请token
+3. 在picgo中配置github图床
+4. ctrl+shift+p上传图片
+5. 直接粘贴剪贴板中的链接  
+</code></pre>
+
+<h2>markdown语法</h2>
+<pre><code>1.&lt;pre class=&quot;prettyprint&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;  [代码]  &lt;/code&gt;&lt;/pre&gt;用来环绕代码块
+2. ` [代码] `用来环绕一行中某些部分属于代码的情况
+3. &lt;!-- [注释] --&gt;用来环绕注释内容
+4. &lt;p align='center'&gt;  [内容]  &lt;/p&gt;用来环绕居中内容
+5. 表格语法：
+</code></pre>
+
+<table>
+<thead>
+<tr>
+	<th align="left">这是</th>
+	<th align="center">一个</th>
+	<th align="right">表格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td align="left">foefowewewewj</td>
+	<td align="center">wefweweqweegg</td>
+	<td align="right">fwegqweqwewegwe</td>
+</tr>
+<tr>
+	<td align="left">左对齐</td>
+	<td align="center">居中对齐</td>
+	<td align="right">右对齐</td>
+</tr>
+</tbody>
+</table>
+<pre><code>6. checkbox效果列表
+</code></pre>
+
+<ul>
+<li>[] list1</li>
+<li>[x] list2</li>
+<li>[] list3</li>
+</ul>
+<hr />
+<h1>命令</h1>
+<hr />
+<h2>账户初始化</h2>
+<h3>显示所有的配置信息</h3>
+<pre><code>git config --list
+</code></pre>
+
+<h3>配置提交仓库时：用户名</h3>
+<pre><code>git config --global user.name 'your_name'
+</code></pre>
+
+<h3>配置提交仓库时：邮箱</h3>
+<pre><code>git config --global user.email 'your_email'
+</code></pre>
+
+<h2>别名</h2>
+<h3>命令方式添加别名</h3>
+<pre><code>git config --global alias.ci commit
+</code></pre>
+
+<h3>修改.gitconfig文件</h3>
+<pre><code>通过命令方式添加一条后，按照原有格式在~./.gitconfig文件中直接添加其他别名
+</code></pre>
+
+<h2>新建仓库</h2>
+<h3>文件夹中初始化为本地空仓库</h3>
+<pre><code>git init
+</code></pre>
+
+<h3>通过github初始化本地仓库</h3>
+<pre><code>git clone [url]
+</code></pre>
+
+<h2>添加删除文件</h2>
+<h3>文件添加到暂存区</h3>
+<pre><code>git add [file1] [file2]
+git add -p
+    s (分片选择)
+</code></pre>
+
+<h3>删除文件，并影响暂存区</h3>
+<pre><code>git rm [file1] [file2]
+</code></pre>
+
+<h3>改名文件，并影响暂存区</h3>
+<pre><code>git mv [file-origin] [file-renamed]
+</code></pre>
+
+<h3>清空当前目录中未跟踪文件</h3>
+<pre><code>git clean -n (列出目标文件)
+git clean -f (删除未跟踪文件)
+git clean -d (删除未跟踪文件夹)
+</code></pre>
+
+<h2>代码提交</h2>
+<h3>通过.gitignore文件增加白名单</h3>
+<pre><code>该白名单文件本身是需要进行版本控制的
+在.gitignore中增加来忽略某些或者某类文件的版本控制
+</code></pre>
+
+<pre class="prettyprint"><code class="language-java">
+# ignore these temp file
+*.obj
+*.exe
+</code></pre>
+<h3>允许提交有混合换行符的文件</h3>
+<pre><code>git config --global core.safecrlf false
+</code></pre>
+
+<h3>暂存区提交到本地仓库</h3>
+<pre><code>git commit -m [message]
+</code></pre>
+
+<h3>工作区直接提交到本地仓库</h3>
+<pre><code>git commit -a -m [message]（前提是仓库中已有该文件版本）
+</code></pre>
+
+<h3>提交信息的编写规范</h3>
+<pre><code>1. git commit（此时弹窗可编写多行提交信息）
+2. 规范:
+        &lt;type&gt;(&lt;scope&gt;):&lt;subject&gt;
+        //空一行
+        &lt;body&gt;
+        //空一行
+        &lt;footer&gt;
+
+        //说明：
+        - type:
+            * feat(新增功能)  
+            * fix(修复bug)
+            * docs(修改文档)
+            * style(更改格式)
+            * refactor(重构代码)
+            * test(增加测试)
+            * chore(辅助工具的变动)
+        - scope：
+            * 影响的范围或者文件
+        - subject：
+            * 主题，大致描述本次修改的内容
+        - body:
+            * 主体，详细描述修改的内容（可省略）
+        - footer
+            * 尾注，用户关闭issue (比如：close #4)
+
+        @（type+scope+subject不可超过70个字符，否则git log会换行）
+</code></pre>
+
+<h2>查看状态</h2>
+<h3>查看变更信息</h3>
+<pre><code>git status
+</code></pre>
+
+<h3>显示当前分支的历史版本</h3>
+<pre><code>git log (整个仓库的)
+git log [filename]
+git log -n (只显示最近n个commit)
+git log --oneline （简要地行显示）
+git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+</code></pre>
+
+<h3>查看历史提交的具体更改</h3>
+<pre><code>git show [old version hashCode]
+git show HEAD[~&lt;0-X&gt;]
+</code></pre>
+
+<h3>查看文档中每一行的提交信息</h3>
+<pre><code>git blame [filename]
+git blame -L startLine,endLine [filename]
+</code></pre>
+
+<h3>查看不同版本中间的区别</h3>
+<p><img src="https://raw.githubusercontent.com/xuanshengmail/pictures/master/picgo/git-diff.jpg" alt="（加载失败）git证书说明" /></p>
+<h2>同步远程仓库</h2>
+<h3>查看链接的远程仓库</h3>
+<pre><code>git remote -v
+</code></pre>
+
+<h3>与远程仓库建立连接</h3>
+<pre><code>git remote add [shortname] [github——url]
+</code></pre>
+
+<h3>本地仓库内容提交到远程仓库</h3>
+<pre><code>git push [shortname] [local——branch]
+</code></pre>
+
+<h3>将远程仓库内容拉取到本地</h3>
+<pre><code>git pull [shortname] [local——branch]
+</code></pre>
+
+<h2>回撤操作</h2>
+<h3>仓库到暂存区</h3>
+<pre><code>git reset [HEAD] --soft (融合)
+</code></pre>
+
+<h3>暂存区到工作区</h3>
+<pre><code>git reset HEAD (融合)
+git checkout (覆盖)
+</code></pre>
+
+<h3>仓库到工作区</h3>
+<pre><code>git reset [HEAD] --hard (覆盖)
+</code></pre>
+
+<h3>回撤动作同步到远程仓库</h3>
+<pre><code>git push -f
+</code></pre>
+
+<h3>变基操作</h3>
+<pre><code>git rebase -i HEAD[~3]
+</code></pre>
+
+<h2>标签操作</h2>
+<h3>列出所有标签</h3>
+<pre><code>git tag
+</code></pre>
+
+<h3>打标签</h3>
+<pre><code>git tag tagname [hashcode]
+</code></pre>
+
+<h3>打标签时加入标签详细信息</h3>
+<pre><code>git tag tagname [hashcode] -m &quot;tag message&quot;
+</code></pre>
+
+<h3>删除标签</h3>
+<pre><code>git tag -d tagname
+</code></pre>
+
+<h3>标签推送到远程仓库</h3>
+<pre><code>git push origin --tags  (所有标签)
+git push origin tagname (某个标签)
+</code></pre>
+
+<h2>分支操作</h2>
+<p><img src="https://raw.githubusercontent.com/xuanshengmail/pictures/master/picgo/git-branch.jpg" /></p>
+<h3>创建分支</h3>
+<pre><code>git branch brname
+</code></pre>
+
+<h3>切换工作分支</h3>
+<pre><code>git chechout brname
+</code></pre>
+
+<h3>创建并切换分支</h3>
+<pre><code>git chechout -b brname
+</code></pre>
+
+<h3>修改分支名字</h3>
+<pre><code>git branch -m oldname newname  (有错误会提示)
+git branch -M oldname newname （新的名字有冲突不会提示,强制执行）
+</code></pre>
+
+<h3>删除分支</h3>
+<pre><code>git branch -d brname (未合并，会提示)
+git branch -D brname (未合并，不提示，直接删除)
+</code></pre>
+
+<h3>查看分支</h3>
+<pre><code>git branch -v           (本地所有分支)
+git branch -r           (远程所有分支)
+git branch --merged     (本地未已合并分支)
+git branch -r --merged （远程已合并分支）
+git branch --no-merged  (本地未合并分支)
+</code></pre>
+
+<h3>取出远程分支</h3>
+<pre><code>git chechout -t origin/brname
+</code></pre>
+
+<h3>推送分支到远程</h3>
+<pre><code>git push -u origin brname
+</code></pre>
+
+<h3>删除远程分支</h3>
+<pre><code>git push origin &lt;space&gt;:&lt;remote branch&gt;
+git fetch -p
+</code></pre>
+
+<h3>合并分支</h3>
+<pre><code>git merge &lt;brname&gt;
+</code></pre>
+
+<h2>冲突</h2>
+<h3>条件</h3>
+<pre><code>在不同的分支上，修改同一个文件
+同一分支上，不同的人，修改了同一个文件
+不同的仓库，修改了同一个文件
+</code></pre>
+
+<h3>注意</h3>
+<pre><code>冲突只在合并分支的时候才会发生
+发生冲突并不可怕，冲突的代码并不会丢失
+</code></pre>
+
+<h3>解决冲突的办法</h3>
+<pre><code>git status查看发生冲突的文件
+对冲突文件做修改
+重新提交，commit时不要加-m给message信息
+</code></pre>
+
+<h2>stash操作</h2>
+<h3>保存进度</h3>
+<pre><code>git stash
+</code></pre>
+
+<h3>弹出进度</h3>
+<pre><code>git stash pop
+</code></pre>
+
+<h3>查看stash列表</h3>
+<pre><code>git stash list
+</code></pre>
+
+<h3>删除stash列表</h3>
+<pre><code>git stash clear
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
